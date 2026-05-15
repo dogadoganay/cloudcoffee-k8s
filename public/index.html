@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CloudCoffee</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .customer-reviews {
+      padding: 5rem 7%;
+      background: #f5eee6;
+      text-align: center;
+    }
+
+    .customer-reviews .review-form {
+      max-width: 650px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.12);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .customer-reviews input,
+    .customer-reviews textarea {
+      width: 100%;
+      padding: 1rem;
+      border: .1rem solid #8b6f47;
+      border-radius: .6rem;
+      font-size: 1rem;
+      background: #fff;
+      color: #333;
+    }
+
+    .customer-reviews textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    .customer-reviews .review-list {
+      max-width: 750px;
+      margin: 2rem auto 0;
+    }
+
+    .review-card {
+      background: #fff;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+      text-align: left;
+      box-shadow: 0 .5rem 1.2rem rgba(0,0,0,.10);
+      border-left: .4rem solid #8b6f47;
+    }
+
+    .review-card strong {
+      color: #5c4033;
+      font-size: 1.2rem;
+    }
+
+    .review-card p {
+      margin: .7rem 0;
+      color: #333;
+      font-size: 1rem;
+    }
+
+    .delete-btn {
+      background: #5c4033;
+      color: white;
+      border: none;
+      padding: .6rem 1rem;
+      border-radius: .5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="header">
+  <div id="menu-btn" class="fas fa-bars"></div>
+  <a href="#" class="logo">CloudCoffee <i class="fas fa-mug-hot"></i></a>
+
+  <nav class="navbar">
+    <a href="#home">home</a>
+    <a href="#about">about</a>
+    <a href="#menu">menu</a>
+    <a href="#review">review</a>
+    <a href="#book">book</a>
+  </nav>
+
+  <a href="#book" class="btn">book a table</a>
+</header>
+
+<section class="home" id="home">
+  <div class="row">
+    <div class="content">
+      <h3>fresh coffee in the morning</h3>
+      <a href="#menu" class="btn">see menu</a>
+    </div>
+
+    <div class="image">
+      <img src="image/home-img-1.png" class="main-home-image" alt="">
+    </div>
+  </div>
+
+  <div class="image-slider">
+    <img src="image/home-img-1.png" alt="">
+    <img src="image/home-img-2.png" alt="">
+    <img src="image/home-img-3.png" alt="">
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h1 class="heading">about us <span>why choose us</span></h1>
+
+  <div class="row">
+    <div class="image">
+      <img src="image/about-img.png" alt="">
+    </div>
+
+    <div class="content">
+      <h3 class="title">what makes our coffee special?</h3>
+      <p>CloudCoffee is a simple coffee shop web application running inside a Docker container and deployed on Kubernetes. Customer reviews are stored persistently using a PVC.</p>
+
+      <a href="#menu" class="btn">read more</a>
+
+      <div class="icons-container">
+        <div class="icons">
+          <img src="image/about-icon-1.png" alt="">
+          <h3>quality coffee</h3>
+        </div>
+
+        <div class="icons">
+          <img src="image/about-icon-2.png" alt="">
+          <h3>persistent reviews</h3>
+        </div>
+
+        <div class="icons">
+          <img src="image/about-icon-3.png" alt="">
+          <h3>cloud native</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <h1 class="heading">our menu <span>popular menu</span></h1>
+
+  <div class="box-container">
+    <a href="#" class="box">
+      <img src="image/menu-1.png" alt="">
+      <div class="content">
+        <h3>Latte</h3>
+        <p>Soft espresso with steamed milk.</p>
+        <span>120 TL</span>
+      </div>
+    </a>
+
+    <a href="#" class="box">
+      <img src="image/menu-2.png" alt="">
+      <div class="content">
+        <h3>Americano</h3>
+        <p>Classic espresso with hot water.</p>
+        <span>95 TL</span>
+      </div>
+    </a>
+
+    <a href="#" class="box">
+      <img src="image/menu-3.png" alt="">
+      <div class="content">
+        <h3>Cappuccino</h3>
+        <p>Espresso, milk foam and a rich taste.</p>
+        <span>125 TL</span>
+      </div>
+    </a>
+
+    <a href="#" class="box">
+      <img src="image/menu-4.png" alt="">
+      <div class="content">
+        <h3>Mocha</h3>
+        <p>Chocolate flavored coffee experience.</p>
+        <span>135 TL</span>
+      </div>
+    </a>
+
+    <a href="#" class="box">
+      <img src="image/menu-5.png" alt="">
+      <div class="content">
+        <h3>Cold Brew</h3>
+        <p>Slow brewed cold coffee.</p>
+        <span>140 TL</span>
+      </div>
+    </a>
+
+    <a href="#" class="box">
+      <img src="image/menu-6.png" alt="">
+      <div class="content">
+        <h3>Espresso</h3>
+        <p>Strong and intense coffee shot.</p>
+        <span>85 TL</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="review" id="review">
+  <h1 class="heading">reviews <span>what people say</span></h1>
+
+  <div class="swiper review-slider">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide box">
+        <i class="fas fa-quote-left"></i>
+        <i class="fas fa-quote-right"></i>
+        <img src="image/pic-1.png" alt="">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p>The coffee is fresh and the service is fast.</p>
+        <h3>John Doe</h3>
+        <span>satisfied client</span>
+      </div>
+
+      <div class="swiper-slide box">
+        <i class="fas fa-quote-left"></i>
+        <i class="fas fa-quote-right"></i>
+        <img src="image/pic-2.png" alt="">
+        <div class="stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+        <p>CloudCoffee has a clean menu and a nice design.</p>
+        <h3>Jane Doe</h3>
+        <span>satisfied client</span>
+      </div>
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+
+<section class="book" id="book">
+  <h1 class="heading">booking <span>reserve a table</span></h1>
+
+  <form action="">
+    <input type="text" placeholder="Name" class="box">
+    <input type="email" placeholder="Email" class="box">
+    <input type="number" placeholder="Number" class="box">
+    <textarea placeholder="Message" class="box" cols="30" rows="10"></textarea>
+    <input type="submit" value="send message" class="btn">
+  </form>
+</section>
+
+<section class="customer-reviews">
+  <h1 class="heading">customer <span>reviews</span></h1>
+
+  <form id="reviewForm" class="review-form">
+    <input id="reviewName" type="text" placeholder="Your Name" required>
+    <textarea id="reviewMessage" placeholder="Write your review..." required></textarea>
+    <button type="submit" class="btn">Add Review</button>
+  </form>
+
+  <div id="reviewsList" class="review-list"></div>
+</section>
+
+<section class="footer">
+  <div class="box-container">
+    <div class="box">
+      <h3>project features</h3>
+      <a href="#"><i class="fas fa-arrow-right"></i> Docker container</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> Kubernetes deployment</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> Persistent Volume Claim</a>
+      <a href="#"><i class="fas fa-arrow-right"></i> CI/CD pipeline</a>
+    </div>
+
+    <div class="box">
+      <h3>quick links</h3>
+      <a href="#home"><i class="fas fa-arrow-right"></i> home</a>
+      <a href="#about"><i class="fas fa-arrow-right"></i> about</a>
+      <a href="#menu"><i class="fas fa-arrow-right"></i> menu</a>
+      <a href="#review"><i class="fas fa-arrow-right"></i> review</a>
+      <a href="#book"><i class="fas fa-arrow-right"></i> book</a>
+    </div>
+
+    <div class="box">
+      <h3>system info</h3>
+      <a href="#"><i class="fas fa-server"></i> Node.js Express backend</a>
+      <a href="#"><i class="fas fa-database"></i> JSON file storage</a>
+      <a href="#"><i class="fas fa-cloud"></i> Google Kubernetes Engine</a>
+    </div>
+
+    <div class="box">
+      <h3>team</h3>
+      <a href="#"><i class="fas fa-user"></i> Doğa Doğanay</a>
+      <a href="#"><i class="fas fa-user"></i> Team Member 2</a>
+      <a href="#"><i class="fas fa-user"></i> Team Member 3</a>
+    </div>
+  </div>
+
+  <div class="credit">CloudCoffee | Kubernetes Final Project</div>
+</section>
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+<script>
+  async function loadReviews() {
+    const res = await fetch('/api/reviews')
+    const reviews = await res.json()
+
+    const list = document.getElementById('reviewsList')
+
+    if (reviews.length === 0) {
+      list.innerHTML = '<p style="font-size:1.1rem; color:#5c4033;">No reviews yet. Add the first review!</p>'
+      return
+    }
+
+    list.innerHTML = reviews.map(r => `
+      <div class="review-card">
+        <strong>${r.name}</strong>
+        <p>${r.message}</p>
+        <button class="delete-btn" onclick="deleteReview(${r.id})">Delete</button>
+      </div>
+    `).join('')
+  }
+
+  async function deleteReview(id) {
+    await fetch('/api/reviews/' + id, {
+      method: 'DELETE'
+    })
+
+    loadReviews()
+  }
+
+  document.getElementById('reviewForm').addEventListener('submit', async function(e) {
+    e.preventDefault()
+
+    await fetch('/api/reviews', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: document.getElementById('reviewName').value,
+        message: document.getElementById('reviewMessage').value
+      })
+    })
+
+    document.getElementById('reviewForm').reset()
+    loadReviews()
+  })
+
+  loadReviews()
+</script>
+
+</body>
+</html>
