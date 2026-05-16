@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloudcoffee
+  labels:
+    app: cloudcoffee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloudcoffee
+  template:
+    metadata:
+      labels:
+        app: cloudcoffee
+    spec:
+      containers:
+      - name: cloudcoffee
+        image: us-central1-docker.pkg.dev/cloudcoffee-k8s/cloudcoffee-repo/cloudcoffee-app:v1
+        ports:
+        - containerPort: 8080
+        env:
+        - name: DATA_DIR
+          value: /usr/src/app/data
+        volumeMounts:
+        - mountPath: /usr/src/app/data
+          name: review-storage
+      volumes:
+      - name: review-storage
+        persistentVolumeClaim:
+          claimName: coffee-pvc
