@@ -17,3 +17,5 @@ To build manually:
 
     # run in background as daemon
     $ docker run -p 44444:8080 -d brianfive/simple-express-docker
+
+CI/CD test
