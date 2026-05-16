@@ -1,0 +1,24 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/cloudcoffee-repo/cloudcoffee-app:$SHORT_SHA'
+      - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'push'
+      - 'us-central1-docker.pkg.dev/$PROJECT_ID/cloudcoffee-repo/cloudcoffee-app:$SHORT_SHA'
+
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      - 'set'
+      - 'image'
+      - 'deployment/cloudcoffee'
+      - 'cloudcoffee=us-central1-docker.pkg.dev/$PROJECT_ID/cloudcoffee-repo/cloudcoffee-app:$SHORT_SHA'
+      - '--zone=us-central1-a'
+      - '--cluster=cloudcoffee-standard-cluster'
+
+options:
+  logging: CLOUD_LOGGING_ONLY
